@@ -11,12 +11,18 @@ class Users::ProfilesController < ApplicationController
     
     def show
       @user_show = current_user
+      #para la estacion mas concurrida(station_id dela station mas visitada)
+      @state_more_visited = @user_show.services.maximum('station_id')
+      #@name_station_more_visited = @user_show.services(@state_more_visited)
+      @name_station_more_visited = Station.where(:id => @name_station_more_visited)
+      
+      
       @car_pertinente = current_user.car
       
       data_table = GoogleVisualr::DataTable.new
       # Add Column Headers
-      data_table.new_column('string', 'Year' )
-      data_table.new_column('number', 'Sales')
+      data_table.new_column('string', 'Date' )
+      data_table.new_column('number', 'km/gas')
       
       @user_show.services.each do |service|
         # Add Rows and Values

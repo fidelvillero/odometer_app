@@ -26,7 +26,6 @@ class StationsController < ApplicationController
   def destroy
     @station = Statio.find(params[:id])
     @services = @station.services.find(params[:id])
-    p "* "* 100
     p @station
     @services.destroy
 

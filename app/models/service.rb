@@ -6,7 +6,6 @@ class Service < ActiveRecord::Base
     self.average_costo_gal = self.kmr / self.cant_gal
   end
   
-  #validates_numericality_of :only_integer => 
   
   validates_presence_of :costo_gas#, :on => :create
   validates_presence_of :cant_gal

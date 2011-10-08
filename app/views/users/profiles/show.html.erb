@@ -3,7 +3,6 @@
 	<br>
 	<br>
 	
-
 	<div id='chart'></div>
 	<%#= render_chart(@chart, 'chart') %>
 	<tr>
@@ -30,6 +29,11 @@
 		<td><b><i>Cheapest:</b></i></td>
 		<td><i>$&nbsp;<%=Service.minimum('average_costo_gal')%></i></td>  
 	</tr>
+	<tr>
+		<td><b><i>Count stations visited:</b></i></td>
+		<td><i><%=@state_more_visited%></i></td>  
+	</tr>
+	
 	<br />
 	<br />
 </table>
@@ -48,6 +52,7 @@
       <th>KM/Galon</th>
     </tr>
   </thead>
+<%# obtengo dodos los services de ese user%>
 <%@user_show.services.each do |service|%>         
   <tr>
     <td>
