@@ -1,0 +1,6 @@
+<% @stations.each do |f| %>
+	<br />
+	<br>Name Station :</br><%= link_to f.name, new_station_service_path(f) %>
+	<br>Address Station :</br><%= f.address %>
+
+<% end%>

@@ -1,0 +1,45 @@
+<table>
+<thead>
+	<b><h2><i><%=@station.name%></i></h2></b>
+	<br>
+	<br /><B>Servicio :</B>
+	<br>
+</thead>
+</table>
+
+<%#= form_for([@station, @services_new]) do |f|%>
+
+<%= form_for([@station, @services_new]) do |f|%>
+<% if @services_new.errors.any? %>
+    <div id="error_explanation">
+      <h2><%#= pluralize(@services_new.errors.count, "error") %> prohibited this add_gasoline from being saved:</h2>
+
+      <ul>
+      <% @services_new.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<br>
+  <div class="field">
+    <%= f.label :Date %><br />
+    <%= f.date_select :Date %>
+  </div>
+  <div class="field">
+    <%= f.label :Coste_gas %><br />
+    <%= f.text_field :costo_gas %>
+  </div>
+  <div class="field">
+    <%= f.label :Count_Galon %><br />
+    <%= f.text_field :cant_gal %>
+  </div>
+  <div class="field">
+    <%= f.label :KMs %><br />
+    <%= f.text_field :kmr %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end%>

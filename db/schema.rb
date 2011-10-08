@@ -10,13 +10,53 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111005205118) do
+ActiveRecord::Schema.define(:version => 20111008030241) do
 
   create_table "cars", :force => true do |t|
     t.string   "make"
     t.string   "model"
     t.integer  "initial_odometer"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gas", :force => true do |t|
+    t.integer  "station_id"
+    t.date     "Date"
+    t.float    "Coste"
+    t.float    "gal"
+    t.float    "km"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "geolocation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "services", :force => true do |t|
+    t.integer  "station_id"
+    t.integer  "user_id"
+    t.date     "Date"
+    t.float    "costo_gas"
+    t.float    "cant_gal"
+    t.float    "kmr"
+    t.float    "average_km_gas"
+    t.float    "average_costo_gal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stations", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.float    "longitude"
+    t.float    "latitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,42 @@
+<html>
+<table>
+	<br>
+	<br>
+	<%#= image_tag @user.avatar.url %>
+	<%#= image_tag @user.avatar.url(:medium) %>
+	<%#= image_tag @user.avatar.url(:thumb) %>
+
+	<div id='chart'>
+
+		aqui es donde deberia
+	</div>
+	<div id='chart'></div>
+	<%= render_chart(@chart, 'chart') %>
+		estar la imagen de stadisticas
+	<tr>
+		<td><b><i>Name:</i></b></td>
+		<td><%=@user_show.full_name%></td>
+	</tr>
+	<tr>
+		<td><b><i>E_mail:</i></b></td>
+		<td><%=@user_show.email%></td>
+	</tr>
+	<tr>
+		<td><b><i>Model:</b></i></td>
+		<td><%=@car_pertinente.model%></td>
+	</tr>
+	<tr>
+		<td><b><i>Make:</b></i></td>
+		<td><%=@car_pertinente.make%></td>
+	</tr>
+	<tr>
+		<td><b><i>Initial_Odometer:</b></i></td>
+		<td><%=@car_pertinente.initial_odometer%></td>
+	</tr>
+	<tr>
+		<td><b><i>Cheapest:</b></i></td>
+		<td><i>$<%=Service.minimum('average_costo_gal')%></i></td>
+	</tr>
+</table>
+	
+</html>
