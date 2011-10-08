@@ -12,7 +12,12 @@ Odometer::Application.routes.draw do
   
   resources :stations do
     resources :services
+    #singleton
+    #resource :service, :only [:show, :destroy, :new]
   end
+  
+  #singleton OJO... 
+  #resource :service, only: [:show, :destroy, :new], controller: "services"
   
   resources :locations
   

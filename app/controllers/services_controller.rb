@@ -1,5 +1,9 @@
 class ServicesController < ApplicationController
   
+  def index
+    @services = Service.find_by_user_id(current_user.id)
+  end
+  
   def new
     @station = Station.find(params[:station_id])
     @services_new = Service.new
@@ -7,8 +11,10 @@ class ServicesController < ApplicationController
   end
   
   def show
-    @service = Service.all
-    
+    p "<<<<<<<<<<<<<< entre al new <<<<<<<<<<<<<<<<<<<<" + current_user.id.to_s
+    @services = Service.find_by_user_id(current_user.id)
+    p "xxxxxxxxxxxxxxx services es  xxxxxxxxxxxxx"
+    p @services
   end
 
   def create
@@ -16,31 +22,11 @@ class ServicesController < ApplicationController
     @service_create = Service.new(params[:service])
     @service_create.user_id = current_user.id
     @service_create.station_id = params[:station_id]
-    
-    kmr = @service_create.kmr
-    cant_gasolina = @service_create.cant_gal #cantidad de galones de gasolina
-    coste_gas = @service_create.costo_gas
-    cant_galones = @service_create.cant_gal
-    #coste de gasolina en las diferentes gasolinerias
-    
-    #operaciones
-    
-    # kilometros recorridos/ gasolina
-    km_gas = kmr / cant_gasolina
-    # Costo de gas / galones
-    cost_galns = coste_gas / cant_galones
-    
-    @service_create.average_km_gas = km_gas
-    @service_create.average_costo_gal = cost_galns
-    
-    p "<<<<<< kmr / cant_gasolina " + km_gas.to_s
-    p "<<<<<< coste_gas / cant_galones " + cost_galns.to_s
-     
-    
+
     if @service_create.save(@service)
-      redirect_to "/stations/#{:station_id}/services/#{:id}", :notice => 'creo q se guardo..!'
+      redirect_to root_path
     else
-      redirect_to(render :action => "new")
+      redirect_to new_service_path
     end
     
   end

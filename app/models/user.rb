@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :car_attributes, :full_name, :email, :password, :password_confirmation, :remember_me
 
   has_one :car
+  has_many :services
 
   accepts_nested_attributes_for :car
 

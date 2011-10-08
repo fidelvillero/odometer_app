@@ -7,12 +7,10 @@
 	<%#= image_tag @user.avatar.url(:thumb) %>
 
 	<div id='chart'>
-
-		aqui es donde deberia
+		
 	</div>
 	<div id='chart'></div>
 	<%= render_chart(@chart, 'chart') %>
-		estar la imagen de stadisticas
 	<tr>
 		<td><b><i>Name:</i></b></td>
 		<td><%=@user_show.full_name%></td>
@@ -35,8 +33,49 @@
 	</tr>
 	<tr>
 		<td><b><i>Cheapest:</b></i></td>
-		<td><i>$<%=Service.minimum('average_costo_gal')%></i></td>
+		<td><i>$&nbsp;<%=Service.minimum('average_costo_gal')%></i></td>  
 	</tr>
+	<br />
+	<br />
 </table>
 	
+	
+<table border=1 cellspacing=0 cellpadding=2 bordercolor="493974">
+  <thead>
+    <tr>
+      <th>Gasolinera</th>
+	  <th>fecha</th>
+      <th>Kilometros</th>
+      <th>Galones</th>
+      <th>Costo</th>
+      <th>Costo/Galon</th>
+      <th>KM/Galon</th>
+    </tr>
+  </thead>
+<%@user_show.services.each do |service|%>         
+  <tr>
+    <td>
+	<%= service.station.name%>
+    </td>
+	<td>
+	<%= service.Date%>
+    </td>
+	<td>
+	<%= service.kmr%>
+    </td>
+    <td>
+	<%= service.cant_gal%>
+    </td>
+    <td>
+     $&nbsp;<%= service.costo_gas%>
+    </td>
+    <td>
+    $&nbsp;<%= service.average_costo_gal%>
+    </td>
+    <td>
+    <%= service.average_km_gas%>
+    </td>
+    
+<% end%>
+</table>
 </html>

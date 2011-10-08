@@ -16,6 +16,8 @@ class Users::ProfilesController < ApplicationController
     def show
       @user_show = current_user
       @car_pertinente = current_user.car
+      
+      
       # xxxxxxxxxxxxxxxxxxxxxxxxx 
       data_table = GoogleVisualr::DataTable.new
       # Add Column Headers

@@ -1,18 +1,5 @@
 <!DOCTYPE html>
 
-<!--
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Name       : Wild Goose  
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20110710
-
--->
-<html>
-
 <head>
 	<%= stylesheet_link_tag :all %>
 	<%= csrf_meta_tag %>
@@ -25,7 +12,7 @@ Released   : 20110710
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Wild Goose   by Free CSS Templates</title>
+<title>My Odometer App</title>
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
@@ -50,7 +37,7 @@ Released   : 20110710
 	<!-- end #menu -->
 	<div id="header">
 		<div id="logo">
-			<h1><a href="#">Wild Goose   </a></h1>
+			<h1><a href="#">My Odometer App</a></h1>
 			<% if user_signed_in?%>
 			<p> Hello   <a href="#"><%=link_to current_user.full_name, "#"%></a></p>
 			<% end%>
@@ -86,7 +73,7 @@ Released   : 20110710
 					<p class="links"><a href="#"><%= link_to "locate station:", locations_path%></a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><%=link_to "Gasolinera", stations_path %></a>
 						&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
 						<%if user_signed_in?%>
-							<a href="#"><%=link_to "New Gasolinera", new_location_path %></a>
+							<a href="#"><%=link_to "New Gasolinera", new_station_path %></a> 
 						<%end%>
 						</p>
 				</div>
@@ -131,27 +118,7 @@ Released   : 20110710
 					</ul>
 				</li>
 				<li>
-					<h2>Blogroll</h2>
-					<ul>
-						<li><a href="#">Aliquam libero</a></li>
-						<li><a href="#">Consectetuer adipiscing elit</a></li>
-						<li><a href="#">Metus aliquam pellentesque</a></li>
-						<li><a href="#">Suspendisse iaculis mauris</a></li>
-						<li><a href="#">Urnanet non molestie semper</a></li>
-						<li><a href="#">Proin gravida orci porttitor</a></li>
-					</ul>
-				</li>
-				<li>
-					<h2>Archives</h2>
-					<ul>
-						<li><a href="#">Aliquam libero</a></li>
-						<li><a href="#">Consectetuer adipiscing elit</a></li>
-						<li><a href="#">Metus aliquam pellentesque</a></li>
-						<li><a href="#">Suspendisse iaculis mauris</a></li>
-						<li><a href="#">Urnanet non molestie semper</a></li>
-						<li><a href="#">Proin gravida orci porttitor</a></li>
-					</ul>
-				</li>
+				
 			</ul>
 		</div>
 		<!-- end #sidebar -->
