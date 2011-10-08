@@ -2,15 +2,10 @@
 <table border=1 solid=2 cellspacing=0 cellpadding=0 bordercolor="FFFFFF">
 	<br>
 	<br>
-	<%#= image_tag @user.avatar.url %>
-	<%#= image_tag @user.avatar.url(:medium) %>
-	<%#= image_tag @user.avatar.url(:thumb) %>
+	
 
-	<div id='chart'>
-		
-	</div>
 	<div id='chart'></div>
-	<%= render_chart(@chart, 'chart') %>
+	<%#= render_chart(@chart, 'chart') %>
 	<tr>
 		<td><b><i>Name:</i></b></td>
 		<td><%=@user_show.full_name%></td>
