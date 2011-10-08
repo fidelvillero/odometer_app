@@ -73,7 +73,8 @@
 					<p class="links"><a href="#"><%= link_to "locate station:", locations_path%></a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><%=link_to "Gasolinera", stations_path %></a>
 						&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
 						<%if user_signed_in?%>
-							<a href="#"><%=link_to "New Gasolinera", new_station_path %></a> 
+							<a href="#"><%=link_to "New Gasolinera", new_station_path %></a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+							<%= link_to "Me Profile", root_path%></a>
 						<%end%>
 						</p>
 				</div>

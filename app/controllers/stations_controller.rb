@@ -22,4 +22,18 @@ class StationsController < ApplicationController
   def show
     @station = Station.find(params[:id])
   end
+  
+  def destroy
+    @station = Statio.find(params[:id])
+    @services = @station.services.find(params[:id])
+    p "* "* 100
+    p @station
+    @services.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(locations_url) }
+      format.xml  { head :ok }
+    end
+  end
+    
 end

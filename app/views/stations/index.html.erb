@@ -1,6 +1,13 @@
 <% @stations.each do |f| %>
 	<br />
-	<br>Name Station :</br><%= link_to f.name, new_station_service_path(f) %>
+	<% p "<<<<<<<<<<<<<<< los services de esta estacion son <<<<<<<<<<<<<<<<<<<<<<<<<"%>
+	<% p f.services	%>
+	<% p "<<<<<<<<<<<<<<< relacion station q quiero eliminar <<<<<<<<<<<<<<<<<<<<<<<<<"%>
+	<% p f %>
+	
+	<br>Name Station :</br><%= link_to f.name, new_station_service_path(f) %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Delete', f.services, f, :confirm => 'Are you sure?', :method => :delete %>
 	<br>Address Station :</br><%= f.address %>
+	
+	<%# [comment.post, comment] %>
 
 <% end%>
