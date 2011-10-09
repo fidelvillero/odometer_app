@@ -11,9 +11,11 @@ class Users::ProfilesController < ApplicationController
     
     def show
       @user_show = current_user
-      #para la estacion mas concurrida(station_id dela station mas visitada)
-      @state_more_visited = @user_show.services.maximum('station_id')
-      #@name_station_more_visited = @user_show.services(@state_more_visited)
+      #minimo coste de gas, de mi consumo
+      @cheapest_coste_gas_last_three_month = current_user.services.minimum('average_costo_gal', :conditions => ['Date > ?', '(Time.new + 3.month)'])
+      #promedio de coste de gasolina en las estaciones visitadas por mi
+      @state_more_visited = current_user.services.average(:costo_gas, :conditions => ['Date > ?', '(Time.new + 3.month)'])
+      #@state_more_visited = @user_show.services.maximum('station_id')
       @name_station_more_visited = Station.where(:id => @name_station_more_visited)
       
       

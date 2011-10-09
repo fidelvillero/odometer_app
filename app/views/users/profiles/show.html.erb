@@ -1,5 +1,5 @@
 <html>
-<table border=1 solid=2 cellspacing=0 cellpadding=0 bordercolor="FFFFFF">
+<table>
 	<br>
 	<br>
 	
@@ -26,11 +26,11 @@
 		<td><%=@car_pertinente.initial_odometer%></td>
 	</tr>
 	<tr>
-		<td><b><i>Cheapest:</b></i></td>
-		<td><i>$&nbsp;<%=Service.minimum('average_costo_gal')%></i></td>  
+		<td><b><i>Cheapest (3 month):</b></i></td>
+		<td><i>$&nbsp;<%=@cheapest_coste_gas_last_three_month%></i></td>  
 	</tr>
 	<tr>
-		<td><b><i>Count stations visited:</b></i></td>
+		<td><b><i>Average coste gas (3 month):</b></i></td>
 		<td><i><%=@state_more_visited%></i></td>  
 	</tr>
 	

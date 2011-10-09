@@ -5,6 +5,8 @@ Odometer::Application.routes.draw do
 
   #root to: "pages#index"
   
+  match 'stations/show' => 'station#show'
+  
   
   devise_for :users, controllers: {registrations: "users/registrations"}
   
