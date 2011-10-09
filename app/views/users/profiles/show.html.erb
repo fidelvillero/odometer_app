@@ -27,11 +27,11 @@
 	</tr>
 	<tr>
 		<td><b><i>Cheapest (3 month):</b></i></td>
-		<td><i>$&nbsp;<%=@cheapest_coste_gas_last_three_month%></i></td>  
+		<td><i>&nbsp;$&nbsp;<%=current_user.services.minimum('average_costo_gal', :conditions => ['Date > ?', '(Time.new - 3.month)'])%></i></td>  
 	</tr>
 	<tr>
 		<td><b><i>Average coste gas (3 month):</b></i></td>
-		<td><i><%=@state_more_visited%></i></td>  
+		<td><i>&nbsp;$&nbsp;<%=current_user.services.average(:costo_gas, :conditions => ['Date > ?', '(Time.new - 3.month)'])%></i></td>  
 	</tr>
 	
 	<br />
