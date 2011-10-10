@@ -13,4 +13,10 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :car
 
   validates_associated :car
+  validates_presence_of :full_name
+  validates_presence_of :make
+  validates_presence_of :model
+  validates_presence_of :initial_odometer
+  #validates_numericality_of :initial_odometer, :only_integer
+  validates_presence_of :make
 end

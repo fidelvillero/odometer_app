@@ -4,7 +4,6 @@ class CreateCars < ActiveRecord::Migration
       t.string :make
       t.string :model
       t.integer :initial_odometer
-      t.integer :user_id
 
       t.timestamps
     end

@@ -1,13 +1,31 @@
 <% @stations.each do |f| %>
-	<br />
-	<% p "<<<<<<<<<<<<<<< los services de esta estacion son <<<<<<<<<<<<<<<<<<<<<<<<<"%>
-	<% p f.services	%>
-	<% p "<<<<<<<<<<<<<<< relacion station q quiero eliminar <<<<<<<<<<<<<<<<<<<<<<<<<"%>
-	<% p f %>
 	
-	<br>Name Station :</br><%= link_to f.name, new_station_service_path(f) %>
-	<br>Address Station :</br><%= f.address %>
-	
-	<%# [comment.post, comment] %>
+	<% if user_signed_in?%>
+		<br />
+		<br>Name Station :</br><%= link_to f.name, new_station_service_path(f) %>
+		<br>Address Station :</br><%= f.address %>
+	<% else%>
+		
+		<table>
+			<br />
+			<tr>
+				<td><b><i>Station Name:</i></b></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=f.name%></td>
+			</tr>
+			<tr>
+				<td><b><i>Address:</i></b></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=f.address%></td>
+			</tr>
+			<tr>
+				<td><b><i>Coste Average Gasoline:</i></b></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$&nbsp;<%=f.services.average(:costo_gas)%></td>
+			</tr>
+			<tr>
+				<td><b><i>Count Average Gasoline:</i></b></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=f.services.average(:cant_gal)%></td>
+			</tr>
+			<br />
+		</table>
+	<% end%>
 
 <% end%>

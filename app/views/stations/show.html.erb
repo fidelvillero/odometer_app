@@ -11,19 +11,15 @@
 		<td><%=@station.address%></td>
 	</tr>
 	<tr>
-		<td><b><i>Average Coste Gasoline(3 month) :</i></b></td>
+		<td><b><i>Average Coste Gasoline(last 3 month) :</i></b></td>
 		<td>&nbsp;$&nbsp;<%=@services.average(:costo_gas, :conditions => ['Date > ?', '(Time.new - 3.month)'])%></td>
 	</tr>
 	<tr>
-		<td><b><i>Average Coste Gasoline(3 month) :</i></b></td>
-		<td>&nbsp;$&nbsp;<%=@services.average(:average_costo_gal, :conditions => ['Date > ?', '(Time.new - 3.month)'])%></td>
-	</tr>
-	<tr>
-		<td><b><i>Average Count Gasoline(3 month) :</i></b></td>
+		<td><b><i>Average Count Gasoline(last 3 month) :</i></b></td>
 		<td>&nbsp;$&nbsp;<%=@services.average(:cant_gal, :conditions => ['Date > ?', '(Time.new - 3.month)'])%></td>
 	</tr>
 	<tr>
-		<td><b><i>Minimum Coste Gasoline(3 month) :</i></b></td>
+		<td><b><i>Minimum Coste Gasoline(last 3 month) :</i></b></td>
 		<td>&nbsp;$&nbsp;<%=@services.minimum(:costo_gas, :conditions => ['Date > ?', '(Time.new - 3.month)'])%></td>
 	</tr>
 	<%# @services.each do |i| %>
