@@ -1,10 +1,15 @@
 <% @stations.each do |f| %>
+
+	<% # monto la grafica estadistica%>
 	
 	<% if user_signed_in?%>
 		<br />
 		<br>Name Station :</br><%= link_to f.name, new_station_service_path(f) %>
 		<br>Address Station :</br><%= f.address %>
 	<% else%>
+	
+		<div id='chart'></div>
+		<%#= render_chart(@chart, 'chart') %>
 		
 		<table>
 			<br />

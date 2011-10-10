@@ -34,8 +34,12 @@ class Users::ProfilesController < ApplicationController
       @hash_ids_station_distinct = @user_show.services.select('DISTINCT station_id')
   
       
-      id_and_name_state_mora_vited(@station_concurrente, @hash_ids_station_distinct)
-      
+      id_and_name_state_mora_vited(@station_concurrente, @hash_ids_station_distinct) 
+      #muestro el grafico
+      chart
+    end
+    
+    def chart
       data_table = GoogleVisualr::DataTable.new
       # Add Column Headers
       data_table.new_column('string', 'Date' )
@@ -53,7 +57,6 @@ class Users::ProfilesController < ApplicationController
         option = { width: 400, height: 240, title: 'Odometer Performance' }
         @chart = GoogleVisualr::Interactive::AreaChart.new(data_table, option)  
       end
-      
     end
     
   
