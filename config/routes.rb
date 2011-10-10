@@ -8,6 +8,6 @@ Odometer::Application.routes.draw do
   #singleton OJO... 
   #resource :service, only: [:show, :destroy, :new], controller: "services"
   resources :locations
-  #root :to => "users/stations#index"
-  root :to => "users/profiles#show"
+  root :to => "users/stations#index"
+  #root :to => "users/profiles#show"
 end
