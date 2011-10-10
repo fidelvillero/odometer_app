@@ -20,7 +20,9 @@ class StationsController < ApplicationController
   end
   
   def show
+    p "show "*100
     @station = Station.find(params[:id])
+    @services = @station.services
   end
   
   def destroy

@@ -16,6 +16,7 @@ class Users::ProfilesController < ApplicationController
         if hash_state_current[ids.station_id] > @count_state_mas_frecuentada
           p "la estacion con state_id " + ids.station_id.to_s + " es mayor"
           @station = Station.find_by_id(ids.station_id)
+          @id_station = ids.station_id
           @count_state_mas_frecuentada = hash_state_current[ids.station_id]
           p @count_state_mas_frecuentada
         end

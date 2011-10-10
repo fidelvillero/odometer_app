@@ -1,5 +1,5 @@
 Odometer::Application.routes.draw do
-  match 'stations/show' => 'station#show'  
+  match 'stations/show/:id' => 'stations#show'
   devise_for :users, controllers: {registrations: "users/registrations"}
   resources :stations do
     resources :services
