@@ -1,6 +1,11 @@
 <html>
 <table>
 	<thead><%#=link_to "new station", new_station_path%></thead>
+	
+	<div id='chart'></div>
+	<%= render_chart(@chart, 'chart') %>
+	
+	
 	<br>
 	<tr>
 		<td><b><i>Name :</i></b></td>
@@ -22,9 +27,6 @@
 		<td><b><i>Minimum Coste Gasoline(last 3 month) :</i></b></td>
 		<td>&nbsp;$&nbsp;<%=@services.minimum(:costo_gas, :conditions => ['Date > ?', '(Time.new - 3.month)'])%></td>
 	</tr>
-	<%# @services.each do |i| %>
-		<%#= y @services%>
-	<%#end%>
 </table>
 	
 </html>

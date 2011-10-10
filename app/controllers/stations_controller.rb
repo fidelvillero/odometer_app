@@ -44,6 +44,7 @@ class StationsController < ApplicationController
     p "show "*100
     @station = Station.find(params[:id])
     @services = @station.services
+    chart_2
   end
   
   def destroy
@@ -55,6 +56,26 @@ class StationsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(locations_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  def chart_2
+    data_table = GoogleVisualr::DataTable.new
+    # Add Column Headers
+    data_table.new_column('string', 'Date' )
+    data_table.new_column('number', 'Coste Gas')
+    
+    @station.services.each do |station|
+      # Add Rows and Values
+      data_table.add_rows([
+        #fecha vs km/gas 
+        [station.Date.to_s, station.costo_gas],
+        #['2005', 1170],
+        #['2006', 660],
+        #['2007', 1030]
+      ])
+      option = { width: 400, height: 240, title: 'Odometer Performance' }
+      @chart = GoogleVisualr::Interactive::AreaChart.new(data_table, option)  
     end
   end
     
