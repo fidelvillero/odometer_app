@@ -33,6 +33,14 @@
 		<td><b><i>Average coste gas (3 month):</b></i></td>
 		<td><i>&nbsp;$&nbsp;<%=current_user.services.average(:costo_gas, :conditions => ['Date > ?', '(Time.new - 3.month)'])%></i></td>  
 	</tr>
+	<tr>
+		<td><b><i>Station more visited:</b></i></td>
+		<td><%=link_to @station.name, "#"%></td>
+	</tr>
+	<tr>
+		<td><b><i>Count visite:</b></i></td>
+		<td><%=@count_state_mas_frecuentada%></td>
+	</tr>
 	
 	<br />
 	<br />
